@@ -12,7 +12,7 @@ JMP. Be sure that you can navigate each of these approaches to running a One-Sam
 
 **Practicing one-sample z-tests the old fashioned way by hand.<br />** 
 
-According to the European medical Association, 11 year old boys in this region are known to have a mean weight of **&#181; = 85 pounds** with population standard deviation **&#181; = 11.6 pounds**. A complaint is made that the boys living in a municipal children's home are underfed. As one bit of evidence, **n = 25 boys** (all age 11) are weighed and found to have a mean weight of 80.94 pounds.<br />  
+According to the European medical Association, 11 year old boys in this region are known to have a mean weight of **$\small \mu$ = 85 pounds** with population standard deviation **$\small \sigma$ = 11.6 pounds**. A complaint is made that the boys living in a municipal children's home are underfed. As one bit of evidence, **n = 25 boys** (all age 11) are weighed and found to have a mean weight of 80.94 pounds.<br />  
 Assume the data is normally distributed and do this analysis by hand (excel) and test to see if the boys at the municipal home are significantly smaller than the general population of 11 year old boys in the region.<br/> 
 
 1. What is the obtained value for this test?<br />
@@ -32,58 +32,9 @@ analysis.
 An environmental law firm is suing the European Union for additional resources to clean its waterways. They claim that the mean concentration (ppm) of contaminants in their water samples collected over a 10 – year period are significantly higher than the larger “population” of water quality samples collected across the EU. Citing significantly higher need would warrant the allocation of additional resources to
 their region.
 <br />
-Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU “population” of water quality results (of **&#181; = 1644**, **&#181; = 497**).
+Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU “population” of water quality results (of **$\small \mu$ = 1644**, **$\small \sigma$ = 497**).
 
 6. Write a brief 1 paragraph summary for this analysis.
 
 
-**R practice.**<br />
-
-```{r}
-df_water <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ One Sample Z-test/water pollution.csv')
-head(df_water)
-```
-
-
-```{r}
-# Population mean (null hypothesis)
-population_mean <- 1644
-population_sd <- 497
-```
-
-```{r}
-# Calculate sample mean
-sample_mean <- mean(df_water$value, na.rm=TRUE)
-```
-
-```{r}
-# Sample size
-n <- length(df_water$value)
-```
-
-```{r}
-# Calculate the test statistic (z-score)
-z_score <- (sample_mean - population_mean) / (population_sd / sqrt(n))
-```
-
-
-
-```{r}
-# Calculate p-value for two-tailed test
-p_value_two_tail <- 2 * (1 - pnorm(abs(z_score)))
-# Calculate the p-value for the right-tailed test
-p_value_right_tailed <- 1 - pnorm(z_score)
-# Calculate the p-value for the left-tailed test
-p_value_left_tailed <- pnorm(z_score)
-```
-
-
-
-```{r}
-# Print results
-cat("Z-Score:", z_score, "\n")
-cat("Prob >|z|:", p_value_two_tail, "\n")
-cat("Prob > z:", p_value_right_tailed, "\n")
-cat("Prob < z:", p_value_left_tailed, "\n")
-```
 
