@@ -1,0 +1,99 @@
+---
+title: "Problem set: Independent and Dependent t-tests"
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2023-08-09"
+output: pdf_document
+---
+
+
+For our next foray into inferential statistics **_we will be practicing both independent and dependent t-tests_**. As usual, submission is in blackboard. However, We encourage you to complete the work outside of blackboard and recording all answers either on paper or in word (in case BB decides to balk). We also encourage you to work in groups to discuss these questions. However, you must ultimately do the work on your own and turn in your answers and interpretations independently. HAVE FUN!<br/>  
+<br/>
+
+**_Bird Migration.xls_** contains data on the species, gender, pre-migration weight and post-migration weight for 28 individual birds measured before and after their annual migration. You are being set loose on this data with little guidance (let’s get ready for the next exam). But we will walk through the steps for inferential statistics:<br />  
+<br />
+
+**Part I.**<br />  
+Consider the data on bird migration in **Bird Migration Data.xls**. We have 28 individuals
+that were captured and banded in Pennsylvania just before the start of their annual migration. We are interested to see if there is a significant difference in size between males and females. Complete each of the following steps to address this question:<br />  
+<br /> 
+
+We’ll start you off with the following:<br />  
+A statement of research hypothesis:  
+**There is a difference in the pre-weights of male and female songbirds.** <br />  
+Set the level of risk associated with the null hypothesis (significance level):<br />  
+**use a p-value threshold of 0.05**  
+
+1. What type of analysis do you think you should run to address this hypothesis?
+2. Analyze data distribution. Is your pre-weight data normally distributed?
+3. Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?
+4. Run this analysis. What is the test statistic (obtained) value for the test you selected?
+5. Based on the nature of the hypothesis (one or two tailed), the 0.05 significance level, and the type of test your ran (parametric, non-parametric, unequal variance), is there a significant difference between Male and Female songbird pre-weights?
+6. Write a one paragraph summary.  
+<br /> 
+
+**Part II.**<br />  
+Again consider the data on bird migration in Bird Migration Data.xls. This time we are
+interested to see if there is a significant difference in size between the two species instead of gender. Import the data set into JMP and complete each of the following steps to address this question:<br />  
+<br />  
+
+Again, We will start you off with:  
+A statement of research hypothesis:  
+**There is a difference in the pre-weights of Hylocichla and Progne species.**  
+Set the level of risk associated with the null hypothesis (significance level):  
+**use a p-value threshold of 0.05**  
+And you already tested for normality above in number 1. Use that same result here.  
+<br /> 
+
+7. Select the appropriate test (i.e. what statistical analysis will you use to test
+this research hypothesis?) and then conduct this analysis in R
+8. What is the test statistic calculated and reported in the R analysis?
+9. Based on the nature of the hypothesis and type of test to run, report the
+appropriate p-value for this test. (report this to 4 decimal places)
+10. Based on this p-value do you accept the null hypothesis?
+11. Write a one paragraph summary of your statistical results and your
+conclusion based on these results. If your results are significant, don’t forget
+to describe the nature of any differences and include a discussion of how
+meaningful results are.  
+<br /> 
+
+**Part III.**<br />  
+Same data set, new question. Consider the data on bird migration in **Bird Migration Data.xls**. Birds were banded, sexed and weighed in Pennsylvania at the start of the migratory season. One month later, 14 of each species were re-captured in the Yucatan. We want to test to see if migration has a negative impact on their vitality using the amount of weight lost as a proxy. Complete each of the following steps to address this question:<br />  
+<br />  
+
+Again, I will start you off with:  
+A statement of research hypothesis:  
+**Songbirds lose body mass during migration (quantified as a comparison of pre-and post- weights).**  
+Set the level of risk associated with the null hypothesis (significance level):  
+**use a p-value threshold of 0.05.**  
+<br />  
+
+12. Analyze data distribution to meet assumptions. Report the p-value of your goodness of fit test (be sure that you are testing the correct data for normality based on the test you need to run to test the stated hypothesis).
+13. Select the appropriate test (i.e. what statistical analysis will you use to
+test this research hypothesis?).
+14. What is the appropriate test statistic (obtained) value for the test you
+selected.
+15. Report the appropriate p-value considering the type of test you are
+running (left, right or two tailed).
+16. Do you accept the null hypothesis?
+17. What are your conclusions (i.e. what does this mean in terms of our original research hypothesis)? Write a one paragraph summary of your statistical analysis and conclusions.  
+<br /> 
+
+**Part IV.**<br />  
+Import your Bird Migration Data.xls into JMP. Now we will do this test again, but this
+time, we want to see if changes in body mass during migration is differentially significant in both males and females. Basically, we will do the same test you chose above, but separately on males and females. In JMP this is done by simply inserting the “Gender” variable into the “BY” window. This will result in two sets of output, one for males and one for females. Using the same process you used above (but this time using JMP instead of doing it all by hand), test the two hypotheses that:  
+
+Again, I will start you off with:  
+A statement of our TWO research hypotheses:  
+**Females lose body mass during migration (measured as change in body weight).**
+AND  
+**Males lose body mass during migration (measured as change in body weight).**  
+Set the level of risk associated with the null hypothesis (significance level):  
+**use a p-value threshold of 0.05.**  
+And you already tested for normality above. Use that same result here.  
+
+18. What are your conclusions (i.e. what does this mean in terms of our original
+research hypothesis)? Write a one paragraph summary reporting the results of
+both tests and what this means about males and females during migration.
+
+
+

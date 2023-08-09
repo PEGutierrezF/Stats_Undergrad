@@ -29,10 +29,10 @@ analysis.
 
 **Running a one-sample z-test in R.**<br />
 
-An environmental law firm is suing the European Union for additional resources to clean its waterways. They claim that the mean concentration (ppm) of contaminants in their water samples collected over a 10 – year period are significantly higher than the larger “population” of water quality samples collected across the EU. Citing significantly higher need would warrant the allocation of additional resources to
+An environmental law firm is suing the European Union for additional resources to clean its waterways. They claim that the mean concentration (ppm) of contaminants in their water samples collected over a 10-year period are significantly higher than the larger "population" of water quality samples collected across the EU. Citing significantly higher need would warrant the allocation of additional resources to
 their region.
 <br />
-Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU “population” of water quality results (of **$\small \mu$ = 1644**, **$\small \sigma$ = 497**).
+Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU "population" of water quality results (of **$\small \mu$ = 1644**, **$\small \sigma$ = 497**).
 
 6. Write a brief 1 paragraph summary for this analysis.
 
