@@ -73,5 +73,19 @@ cat("Prob < z:", p_value_left_tailed)
 ```
 <br />
 <br />
+
+**Compare with calculate critical z-value for one-tailed and two-tailed test (right-tailed).**
+```{r}
+# Define significance level (alpha)
+alpha <- 0.05
+# Calculate critical z-value for one-tailed test (right-tailed)
+critical_z_one_tailed <- qnorm(1 - alpha)
+critical_z_one_tailed
+# Calculate critical z-values for two-tailed test
+critical_z_two_tailed <- qnorm(1 - alpha / 2)
+critical_z_two_tailed
+```
+<br />
+<br />
 <br />
 
