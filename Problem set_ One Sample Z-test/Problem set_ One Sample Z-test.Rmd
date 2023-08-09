@@ -64,7 +64,26 @@ n <- length(df_water$value)
 ```{r}
 # Calculate the test statistic (z-score)
 z_score <- (sample_mean - population_mean) / (population_sd / sqrt(n))
-z_score
 ```
 
+
+
+```{r}
+# Calculate p-value for two-tailed test
+p_value_two_tail <- 2 * (1 - pnorm(abs(z_score)))
+# Calculate the p-value for the right-tailed test
+p_value_right_tailed <- 1 - pnorm(z_score)
+# Calculate the p-value for the left-tailed test
+p_value_left_tailed <- pnorm(z_score)
+```
+
+
+
+```{r}
+# Print results
+cat("Z-Score:", z_score, "\n")
+cat("Prob >|z|:", p_value_two_tail, "\n")
+cat("Prob > z:", p_value_right_tailed, "\n")
+cat("Prob < z:", p_value_left_tailed, "\n")
+```
 
