@@ -36,3 +36,35 @@ Download the data Water Pollution Concentration.jmp and test to see if the conce
 
 6. Write a brief 1 paragraph summary for this analysis.
 
+
+**R practice.**<br />
+
+```{r}
+df_water <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ One Sample Z-test/water pollution.csv')
+head(df_water)
+```
+
+
+```{r}
+# Population mean (null hypothesis)
+population_mean <- 1644
+population_sd <- 497
+```
+
+```{r}
+# Calculate sample mean
+sample_mean <- mean(df_water$value, na.rm=TRUE)
+```
+
+```{r}
+# Sample size
+n <- length(df_water$value)
+```
+
+```{r}
+# Calculate the test statistic (z-score)
+z_score <- (sample_mean - population_mean) / (population_sd / sqrt(n))
+z_score
+```
+
+
