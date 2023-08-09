@@ -1,0 +1,38 @@
+---
+title: "Problem Set: One Sample Z-test"
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2023-08-09"
+output: pdf_document
+---
+
+Welcome to our first foray into inferential statistics. The goal is to make sure that you understand the basics of what one-sample z-tests are doing and the steps in conducting any inferential test. Some of these questions can be answered by hand, in excel or in
+JMP. Be sure that you can navigate each of these approaches to running a One-Sample Z-test.<br />  
+<br />  
+<br /> 
+
+**Practicing one-sample z-tests the old fashioned way by hand.<br />** 
+
+According to the European medical Association, 11 year old boys in this region are known to have a mean weight of **&#181; = 85 pounds** with population standard deviation **&#181; = 11.6 pounds**. A complaint is made that the boys living in a municipal children's home are underfed. As one bit of evidence, **n = 25 boys** (all age 11) are weighed and found to have a mean weight of 80.94 pounds.<br />  
+Assume the data is normally distributed and do this analysis by hand (excel) and test to see if the boys at the municipal home are significantly smaller than the general population of 11 year old boys in the region.<br/> 
+
+1. What is the obtained value for this test?<br />
+2. What is the critical value of this test assuming an alpha threshold of 0.05?
+3. Do you conclude that there is a significant difference between the weight of the boys in the
+municipal home and the general population? Yes or no?
+4. What is the Actual p-value associated with this obtained test statistic value? (you can use excel
+functions for this).
+5. Based on the available data, can you conclude that the boys in the municipal home are
+underweight compared to the general population? Write a brief 1 paragraph summary for this
+analysis.
+<br />  
+<br /> 
+
+**Running a one-sample z-test in R.**<br />
+
+An environmental law firm is suing the European Union for additional resources to clean its waterways. They claim that the mean concentration (ppm) of contaminants in their water samples collected over a 10 – year period are significantly higher than the larger “population” of water quality samples collected across the EU. Citing significantly higher need would warrant the allocation of additional resources to
+their region.
+<br />
+Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU “population” of water quality results (of **&#181; = 1644**, **&#181; = 497**).
+
+6. Write a brief 1 paragraph summary for this analysis.
+
