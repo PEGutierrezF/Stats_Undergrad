@@ -27,18 +27,21 @@ df_bird <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/0
 head(df_bird)
 ```
 <br />
-<br />
-<br />
 
-**Analyze data distribution. Is your pre-weight data normally distributed?**  
+
+
+
+**Part I.**  
+**2. Analyze data distribution. Is your pre-weight data normally distributed?**  
 ```{r}
 shapiro.test(df_bird$Pre_weight)
 ```
 <br />
-<br />
-<br />
 
-**Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
+
+
+
+**3. Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
 ```{r}
 # Perform Levene's test
 result <- leveneTest(Pre_weight~Gender, data=df_bird)
@@ -61,16 +64,17 @@ if (p_value < alpha) {
 }
 ```
 <br />
-<br />
-<br />  
 
-**Run this analysis. What is the test statistic (obtained) value for the test you selected?**<br />  
+
+ 
+
+**4. Run this analysis. What is the test statistic (obtained) value for the test you selected?**<br />  
  Use alternative to determine your hypothesis. Default= "two.sided".<br />   
  alternative = c("two.sided", "less", "greater"),
 ```{r}
 # Perform t-test
 t_test_result <- t.test(Pre_weight~Gender, data=df_bird,
-                         alternative = "less")
+                         alternative = "two.sided")
 print(t_test_result)
 ```
 
@@ -79,4 +83,62 @@ print(t_test_result)
 ggplot(df_bird, aes(x = Gender, y = Pre_weight)) +
   geom_boxplot()  # Add jitter for better visualization
 ```
+<br />
 
+
+
+
+
+**Part II.**  
+**Analyze data distribution. Is your pre-weight data normally distributed?**  
+```{r}
+shapiro.test(df_bird$Pre_weight)
+```
+<br />
+
+
+
+
+**Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
+```{r}
+# Perform Levene's test
+result <- leveneTest(Pre_weight~Species, data=df_bird)
+print(result)
+```
+<br />
+<br />
+<br />  
+
+```{r}
+p_value <- result$Pr[1]
+# Significance level
+alpha <- 0.05
+
+# Interpret the result
+if (p_value < alpha) {
+  cat("Reject null hypothesis: Variances are significantly different.\n")
+} else {
+  cat("Fail to reject null hypothesis: Variances are not significantly different.\n")
+}
+```
+<br />
+
+
+ 
+
+**8. Run this analysis. What is the test statistic (obtained) value for the test you selected?**<br />  
+ Use alternative to determine your hypothesis. Default= "two.sided".<br />   
+ alternative = c("two.sided", "less", "greater"),
+```{r}
+# Perform t-test
+t_test_result <- t.test(Pre_weight~Species, data=df_bird,
+                         alternative = "two.sided")
+print(t_test_result)
+```
+
+```{r}
+# Create a boxplot plot using ggplot2
+ggplot(df_bird, aes(x = Species, y = Pre_weight)) +
+  geom_boxplot()  # Add jitter for better visualization
+```
+<br />
