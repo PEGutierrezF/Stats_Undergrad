@@ -5,7 +5,7 @@ date: "2023-08-11"
 output: pdf_document
 ---
 
-**R practice.<br />**  
+# **R practice.<br />**  
 \vspace{1em}
 
 **Install packages.<br />**  
@@ -68,16 +68,18 @@ if (p_value < alpha) {
  alternative = c("two.sided", "less", "greater"),
 ```{r}
 # Perform t-test
-t_test_result <- t.test(value~Gender,alternative = "two.sided",
+t_test_result <- t.test(value~Gender, alternative = "two.sided",
                          var.equal=TRUE, data=df_bird_Pre_weight)
 print(t_test_result)
 ```
+\vspace{1em}
+We hypothesized that there is a difference in the pre-weights of male and female songbirds. However, an independent two-tailed pooled t-test indicated that there was not a significant difference between genders (t (26) = -0.78654, p= 0.4387). It is possible that low power limited the ability of this test to detect significant differences. 
 \vspace{1em}
 
 ```{r}
 # Create a boxplot plot using ggplot2
 ggplot(df_bird_Pre_weight, aes(x = Gender, y = value)) +
-  geom_boxplot()  # Add jitter for better visualization
+  geom_boxplot()  
 ```
 \vspace{10em}
 
@@ -123,11 +125,13 @@ t_test_result <- t.test(value~Species, alternative = "two.sided",
 print(t_test_result)
 ```
 \vspace{1em}
+We hypothesized that there is a difference in the pre-weights of Hylocichla and Progne species. An independent two-tailed pooled t-test indicates that Hylocichla does have significantly lower pre-weights than Progne individuals (t(26) = -2.891043, p = 0.007655).  This difference is also meaningful (Cohen’s D effect size = 0.96) This indicates that any analyses of weight changes during migration may want to consider which species is examined based on their inherent difference in size.  
+\vspace{1em}
 
 ```{r}
 # Create a boxplot plot using ggplot2
 ggplot(df_bird_Pre_weight, aes(x = Species, y = value)) +
-  geom_boxplot()  # Add jitter for better visualization
+  geom_boxplot()  
 ```
 \vspace{10em}
 
@@ -169,15 +173,16 @@ t_paired_result <- t.test(value ~ Treatment, paired = TRUE,
 print(t_paired_result)
 ```
 \vspace{1em}
+We hypothesized that songbirds lose body mass during migration (quantified as a comparison of pre-and post-weights). A dependent one-tailed t-test indicated this was true as there was a significant loss of body mass for songbirds during migration (t (27) = -3.4184, p =0.002013).  This difference is also moderately meaningful (Cohen’s D effect size = 0.678).
+\vspace{1em}
 
 
 ```{r}
 # Create a boxplot plot using ggplot2
 ggplot(df_bird_all, aes(x = Treatment, y = value)) +
-  geom_boxplot()  # Add jitter for better visualization
+  geom_boxplot()  
 ```
 \vspace{10em}
-
 
 # **Part IV.**  
 **From the data.frame make two groups (females and males)**
@@ -223,5 +228,7 @@ t_paired_male <- t.test(value ~ Treatment, paired = TRUE,
                         data = df_bird_male)
 print(t_paired_male)
 ```
+\vspace{1em}
+We wanted to see if males and females lose body mass during migration (measured as change in body weight).  Two separate one-tailed, dependent t-tests indicate that  both males (t (13) = -3.16013, p = 0.003762) and females (t (13) = -1.9868, p=0.03422) lose body weight during migration, although this loss if more significant in males.  This difference, while highly meaningful for males, was not meaningful for females (Cohen’s D effect size = 1.02  and 0.25   respectively for males and females).  This indicates that while both genders lose weight, females may spend more time foraging along the route to maintain their weight for breeding.
 
 
