@@ -1,0 +1,25 @@
+---
+title: "PS_Indpendent and Dependent t-test-for-TAs"
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2023-08-11"
+output: pdf_document
+---
+
+**R practice.<br />**
+<br />  
+<br /> 
+
+**Load the water pollution data into R.<br />** 
+```{r, echo=FALSE}
+df_bird <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ Independent and Dependent t-tests/Bird_Migration.csv')
+head(df_bird)
+```
+<br />
+<br />
+<br />
+
+```{r}
+shapiro.test(df_bird$Pre_weight)
+```
+
+
