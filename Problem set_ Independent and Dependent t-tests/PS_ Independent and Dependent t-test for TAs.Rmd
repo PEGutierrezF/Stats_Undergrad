@@ -81,7 +81,7 @@ We hypothesized that there is a difference in the pre-weights of male and female
 ggplot(df_bird_Pre_weight, aes(x = Gender, y = value)) +
   geom_boxplot()  
 ```
-\vspace{10em}
+\newpage
 
 
 
@@ -133,7 +133,7 @@ We hypothesized that there is a difference in the pre-weights of Hylocichla and 
 ggplot(df_bird_Pre_weight, aes(x = Species, y = value)) +
   geom_boxplot()  
 ```
-\vspace{10em}
+\newpage
 
 
 # **Part III.<br />**  
@@ -182,7 +182,7 @@ We hypothesized that songbirds lose body mass during migration (quantified as a 
 ggplot(df_bird_all, aes(x = Treatment, y = value)) +
   geom_boxplot()  
 ```
-\vspace{10em}
+\newpage
 
 # **Part IV.**  
 **From the data.frame make two groups (females and males)**
