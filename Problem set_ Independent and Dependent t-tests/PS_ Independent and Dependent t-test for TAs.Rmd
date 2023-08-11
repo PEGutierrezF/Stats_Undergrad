@@ -30,11 +30,11 @@ df_bird_Pre_weight <- df_bird_all %>%
 
 summary(df_bird_Pre_weight)
 ```
-\vspace{10em}
+\newpage
 
 
 
-**Part I.**  
+# **Part I.**<br />  
 **2. Analyze data distribution. Is your pre-weight data normally distributed?**  
 ```{r}
 shapiro.test(df_bird_Pre_weight$value)
@@ -84,7 +84,7 @@ ggplot(df_bird_Pre_weight, aes(x = Gender, y = value)) +
 
 
 
-**Part II.**  
+# **Part II.**<br />  
 **Analyze data distribution. Is your pre-weight data normally distributed?**  
 ```{r}
 shapiro.test(df_bird_Pre_weight$value)
@@ -132,7 +132,7 @@ ggplot(df_bird_Pre_weight, aes(x = Species, y = value)) +
 \vspace{10em}
 
 
-**Part III.**
+# **Part III.<br />**  
 **12. Analyze data distribution. Is your pre-weight data normally distributed?**  
 ```{r}
 shapiro.test(df_bird_all$value)
@@ -179,7 +179,7 @@ ggplot(df_bird_all, aes(x = Treatment, y = value)) +
 \vspace{10em}
 
 
-**Part IV.**  
+# **Part IV.**  
 **From the data.frame make two groups (females and males)**
 ```{r}
 df_bird_female <- df_bird_all %>% 
