@@ -57,7 +57,7 @@ meaningful results are.
 <br /> 
 
 **Part III.**<br />  
-Same data set, new question. Consider the data on bird migration in **Bird Migration Data.xls**. Birds were banded, sexed and weighed in Pennsylvania at the start of the migratory season. One month later, 14 of each species were re-captured in the Yucatan. We want to test to see if migration has a negative impact on their vitality using the amount of weight lost as a proxy. Complete each of the following steps to address this question:<br />  
+Same data set, new question. Consider the data on bird migration in **Bird Migration Data.csv**. Birds were banded, sexed and weighed in Pennsylvania at the start of the migratory season. One month later, 14 of each species were re-captured in the Yucatan. We want to test to see if migration has a negative impact on their vitality using the amount of weight lost as a proxy. Complete each of the following steps to address this question:<br />  
 <br />  
 
 Again, I will start you off with:  

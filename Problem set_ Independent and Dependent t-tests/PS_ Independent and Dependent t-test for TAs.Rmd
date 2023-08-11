@@ -6,7 +6,7 @@ output: pdf_document
 ---
 
 **R practice.<br />**  
-
+\vspace{1em}
 
 **Install packages.<br />**  
 ```{r}
@@ -14,35 +14,32 @@ library(car)
 library(ggplot2)
 library(dplyr)
 ```
-\vspace{20em}
+\vspace{1em}
 
-**Load the water pollution data into R.<br />**   
+**Load the Bird Migration data into R.<br />**   
 ```{r, echo=FALSE}
 df_bird_all <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ Independent and Dependent t-tests/Bird_Migration.csv')
 head(df_bird_all)
 ```
-\vspace{20em}
+\vspace{1em}
 
-Make a subgroup of Weight before migration (Pre_weight)
+Make a subgroup of Weight before migration (Pre_weight).
 ```{r}
 df_bird_Pre_weight <- df_bird_all %>% 
   filter(Treatment == 'Pre_weight')
-```
-\vspace{20em}
-```{r}
+
 summary(df_bird_Pre_weight)
 ```
-\vspace{30em}
+\vspace{10em}
+
+
 
 **Part I.**  
 **2. Analyze data distribution. Is your pre-weight data normally distributed?**  
 ```{r}
 shapiro.test(df_bird_Pre_weight$value)
 ```
-<br />
-
-
-
+\vspace{1em}
 
 **3. Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
 ```{r}
@@ -50,9 +47,7 @@ shapiro.test(df_bird_Pre_weight$value)
 result <- leveneTest(value~Gender, data=df_bird_Pre_weight)
 print(result)
 ```
-<br />
-<br />
-<br />  
+\vspace{1em} 
 
 ```{r}
 p_value <- result$Pr[1]
@@ -66,10 +61,7 @@ if (p_value < alpha) {
   cat("Fail to reject null hypothesis: Variances are not significantly different.\n")
 }
 ```
-<br />
-
-
- 
+\vspace{1em}
 
 **4. Run this analysis. What is the test statistic (obtained) value for the test you selected?**<br />  
  Use alternative to determine your hypothesis. Default= "two.sided".<br />   
@@ -80,14 +72,14 @@ t_test_result <- t.test(value~Gender,alternative = "two.sided",
                          var.equal=TRUE, data=df_bird_Pre_weight)
 print(t_test_result)
 ```
+\vspace{1em}
 
 ```{r}
 # Create a boxplot plot using ggplot2
 ggplot(df_bird_Pre_weight, aes(x = Gender, y = value)) +
   geom_boxplot()  # Add jitter for better visualization
 ```
-<br />
-
+\vspace{10em}
 
 
 
@@ -97,10 +89,7 @@ ggplot(df_bird_Pre_weight, aes(x = Gender, y = value)) +
 ```{r}
 shapiro.test(df_bird_Pre_weight$value)
 ```
-<br />
-
-
-
+\vspace{1em}
 
 **Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
 ```{r}
@@ -108,9 +97,7 @@ shapiro.test(df_bird_Pre_weight$value)
 result <- leveneTest(value~Species, data=df_bird_Pre_weight)
 print(result)
 ```
-<br />
-<br />
-<br />  
+\vspace{1em} 
 
 ```{r}
 p_value <- result$Pr[1]
@@ -124,10 +111,7 @@ if (p_value < alpha) {
   cat("Fail to reject null hypothesis: Variances are not significantly different.\n")
 }
 ```
-<br />
-
-
- 
+\vspace{1em}
 
 **8. Run this analysis. What is the test statistic (obtained) value for the test you selected?**<br />  
  Use alternative to determine your hypothesis. Default= "two.sided".<br />   
@@ -138,13 +122,14 @@ t_test_result <- t.test(value~Species, alternative = "two.sided",
                          var.equal=TRUE, data=df_bird_Pre_weight)
 print(t_test_result)
 ```
+\vspace{1em}
 
 ```{r}
 # Create a boxplot plot using ggplot2
 ggplot(df_bird_Pre_weight, aes(x = Species, y = value)) +
   geom_boxplot()  # Add jitter for better visualization
 ```
-<br />
+\vspace{10em}
 
 
 **Part III.**
@@ -152,9 +137,7 @@ ggplot(df_bird_Pre_weight, aes(x = Species, y = value)) +
 ```{r}
 shapiro.test(df_bird_all$value)
 ```
-<br />
-
-
+\vspace{1em}
 
 
 **Test to see if you meet the assumption of equal variance for this test. Based on the results of this test for unequal variance, which test should you use?**  
@@ -163,9 +146,7 @@ shapiro.test(df_bird_all$value)
 result_paired_t_test <- leveneTest(value~Treatment, data=df_bird_all)
 print(result_paired_t_test)
 ```
-<br />
-<br />
-<br />  
+\vspace{1em} 
 
 ```{r}
 p_value <- result_paired_t_test$Pr[1]
@@ -179,14 +160,15 @@ if (p_value < alpha) {
   cat("Fail to reject null hypothesis: Variances are not significantly different.\n")
 }
 ```
-<br />
+\vspace{1em}
 
+**Perform and Print the paired t-test result.**
 ```{r}
 t_paired_result <- t.test(value ~ Treatment, paired = TRUE, 
                           data = df_bird_all)
 print(t_paired_result)
 ```
-
+\vspace{1em}
 
 
 ```{r}
@@ -194,43 +176,47 @@ print(t_paired_result)
 ggplot(df_bird_all, aes(x = Treatment, y = value)) +
   geom_boxplot()  # Add jitter for better visualization
 ```
-<br />
+\vspace{10em}
 
 
 **Part IV.**
-From the data.frame make two groups, make two groups (females and males)
-
+**From the data.frame make two groups (females and males)**
 ```{r}
 df_bird_female <- df_bird_all %>% 
   filter(Gender == 'F')
 ```
-
+\vspace{1em}
 
 ```{r}
 df_bird_male <- df_bird_all %>% 
   filter(Gender == 'M')
 ```
+\vspace{1em}
 
 **Assumptions for Females**
 ```{r}
 shapiro.test(df_bird_female$value)
 leveneTest(value~Treatment, data=df_bird_female)
 ```
+\vspace{1em}
 
+**Perform and Print the paired t-test result**
 ```{r}
 t_paired_female <- t.test(value ~ Treatment, paired = TRUE, 
                           alternative= 'less', 
                           data = df_bird_female)
 print(t_paired_female)
 ```
-
+\vspace{2em}
 
 **Assumptions for Males**
 ```{r}
 shapiro.test(df_bird_male$value)
 leveneTest(value~Treatment, data=df_bird_male)
 ```
+\vspace{1em}
 
+**Perform and Print the paired t-test result**
 ```{r}
 t_paired_male <- t.test(value ~ Treatment, paired = TRUE, 
                         alternative= 'less',
