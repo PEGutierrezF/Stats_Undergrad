@@ -5,6 +5,8 @@ date: "2023-08-11"
 output: pdf_document
 ---
 
+
+
 # **R practice.<br />**  
 \vspace{1em}
 
