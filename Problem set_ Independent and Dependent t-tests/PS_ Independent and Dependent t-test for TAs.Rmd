@@ -179,7 +179,7 @@ ggplot(df_bird_all, aes(x = Treatment, y = value)) +
 \vspace{10em}
 
 
-**Part IV.**
+**Part IV.**  
 **From the data.frame make two groups (females and males)**
 ```{r}
 df_bird_female <- df_bird_all %>% 
