@@ -294,7 +294,7 @@ cat("Total number of potential outliers:", total_num_outliers, "\n")
 ```
 \vspace{1em}
 
-30 and 31. Identify the **upper and lower z-scores** that cumulatively represent < 2% TOTAL chance of occurring. This doesn’t require any calculations, just the determination of two z-scores (upper and lower) from the normal probability table (or excel function).
+23 and 24. Identify the **upper and lower z-scores** that cumulatively represent < 2% TOTAL chance of occurring. This doesn’t require any calculations, just the determination of two z-scores (upper and lower) from the normal probability table (or excel function).
 ```{r}
 # Find the z-score for the upper 1% cumulative probability (upper bound)
 upper_bound_prob <- 0.99
@@ -310,7 +310,7 @@ cat("Lower z-score for < 2% cumulative probability:", lower_z_score, "\n")
 ```
 \vspace{1em}
 
-32. What is the actual **non-dreaming** value associated with the upper z score identified in the question above.  
+25. What is the actual **non-dreaming** value associated with the upper z score identified in the question above.  
 ```{r}
 # Calculate the actual non-dreaming value associated with the upper z-score
 actual_upper_value <- mean_NonDreaming + (upper_z_score * sd_NonDreaming)
@@ -319,7 +319,7 @@ actual_upper_value <- mean_NonDreaming + (upper_z_score * sd_NonDreaming)
 cat("Actual non-dreaming value associated with the upper z-score:", actual_upper_value, "\n")
 ```
 
-33. How many **non-dreaming** observations in your data set would be labeled as outliers by this zscore definition? 
+26. How many **non-dreaming** observations in your data set would be labeled as outliers by this zscore definition? 
 ```{r}
 # Calculate the number of non-dreaming observations labeled as outliers
 num_outliers_zscore <- sum(df_mammals$NonDreaming > upper_bound | df_mammals$NonDreaming < lower_bound, na.rm = TRUE)
