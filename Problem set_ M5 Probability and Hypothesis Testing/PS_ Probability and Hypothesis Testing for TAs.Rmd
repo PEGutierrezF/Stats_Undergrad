@@ -1,0 +1,58 @@
+---
+title: "PS_ Probability and Hypothesis Testing for TAs"
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2023-08-12"
+output: pdf_document
+---
+
+# **R practice.<br />**
+\vspace{1em}
+
+**Load the water pollution data into R.<br />** 
+```{r, echo=FALSE}
+df_mammals <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ M5 Probability and Hypothesis Testing/Sleeping Mammals.csv')
+summary(df_mammals)
+```
+\newpage
+
+1. Based on the summary results in JMP, mammals spend most of their time in which type of
+sleep phase (dreaming or non-dreaming)?  
+```{r}
+mean(df_mammals$NonDreaming, na.rm = TRUE)
+mean(df_mammals$Dreaming, na.rm = TRUE)
+```
+\vspace{1em}
+
+2. Which type of sleep phase has the highest variability across the species included here
+(dreaming or non-dreaming)?  
+Non-dreaming  
+```{r}
+sd(df_mammals$NonDreaming, na.rm = TRUE)
+sd(df_mammals$Dreaming, na.rm = TRUE)
+```
+\vspace{1em}
+
+
+3. Enter the p-value for the goodness of fit test for the **Dreaming variable** (NOTE….just enter the number (no letters, symbols, equal signs etc)…also be careful of decimal places.
+```{r}
+shapiro.test(df_mammals$Dreaming)
+```
+\vspace{1em}
+
+4. Based on this goodness of fit test, is the **dreaming variable** normally distributed?
+**No**
+\vspace{1em}
+
+5. Enter the new p-value for the goodness of fit test for the **Dreaming variable** when the outliers are excluded (NOTE….just enter the number (no letters, symbols, equal signs
+etc)…also be careful of decimal places.
+```{r}
+quartiles <- quantile(na.omit(df_mammals$Dreaming), probs = c(0.25, 0.75))
+IQR <- IQR(na.omit(df_mammals$Dreaming))
+Lower <- quartiles[1] - 1.5*IQR
+Upper <- quartiles[2] + 1.5*IQR 
+
+new_Dreaming <- subset(df_mammals$Dreaming, df_mammals$Dreaming > Lower & df_mammals$Dreaming < Upper)
+
+shapiro.test(new_Dreaming)
+```
+

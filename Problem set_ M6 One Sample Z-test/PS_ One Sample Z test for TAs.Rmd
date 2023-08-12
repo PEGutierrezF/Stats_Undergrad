@@ -11,7 +11,7 @@ output: pdf_document
 
 **Load the water pollution data into R.<br />** 
 ```{r, echo=FALSE}
-df_water <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ One Sample Z-test/water pollution.csv')
+df_water <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ M6 One Sample Z-test/water pollution.csv')
 head(df_water)
 ```
 <br />
