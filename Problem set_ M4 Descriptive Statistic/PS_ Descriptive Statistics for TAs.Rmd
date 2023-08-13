@@ -163,7 +163,7 @@ distributed?
 **No**
 \vspace{1em}
 
-15. Based on these results, is your data normally distributed?
+15. Is your data normally distributed? How can you tell? Be sure to report your certainty of this conclusion.
 ```{r}
 shapiro.test(df_snow$Mean_Dec_May_snow_depth)
 ```
