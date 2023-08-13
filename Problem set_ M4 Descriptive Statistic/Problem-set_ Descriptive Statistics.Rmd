@@ -50,7 +50,7 @@ can you tell? Be sure to report your certainty of this conclusion.
 16. Based on these results, which measure of central tendency would be best describe central tendency for this dataset?  
 17. Now use the **Boardstrength data** down-loadable from this blackboard folder. This
 datafile contains measurements of board strength for several different types of
-wood. Your task is to describe this data (Strength variable) as though you were
+wood. Your task is to describe this data (**Strength variable**) as though you were
 presenting it in a paper, poster or presentation.  
 
 In other words....I don't want a bunch of words listing off every possible descriptive
