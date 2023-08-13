@@ -1,0 +1,25 @@
+---
+title: "PS_ Descriptive Statistics for TAs"
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2023-08-13"
+output: pdf_document
+---
+
+
+
+
+# **R practice.<br />**
+\vspace{1em}
+
+**Install packages.<br />**  
+```{r}
+library(ggplot2)
+```
+\vspace{1em}
+
+**Load the water pollution data into R.<br />** 
+```{r, echo=FALSE}
+df_trees <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ M4 Descriptive Statistic/Boardstrength.csv')
+summary(df_trees)
+```
+\newpage

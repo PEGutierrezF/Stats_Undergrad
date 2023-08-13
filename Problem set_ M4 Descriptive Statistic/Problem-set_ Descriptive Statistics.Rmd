@@ -23,7 +23,7 @@ world of pivot tables)
 4. Still in Excel, now calculate the STANDARD DEVIATION for the Yearly Mean Snow
 Depth.  
 
-You can do the following in excel, but it might be easier to import your data into R.
+You can do the following in excel, **but it might be easier to import your data into R**.
 Blackboard should be agreeable …. But I’d suggest moving to JMP for the rest of these
 questions to save yourself time and get used to the software.  
 
