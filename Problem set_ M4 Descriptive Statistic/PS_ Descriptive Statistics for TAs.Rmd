@@ -41,7 +41,8 @@ median(df_snow$Mean_Dec_May_snow_depth)
 \vspace{1em}
 
 3. If you round **Yearly Mean Snow Depth** to the nearest integer (whole number with no
-decimals), what is the MODE? 
+decimals), **what is the MODE**?  
+
 R does not have a standard in-built function to calculate mode. So we create a user function to calculate mode of a data set in R. This function takes the vector as input and gives the mode value as output.
 ```{r}
 # Round the continuous column "value" to 1 decimal place
@@ -60,8 +61,8 @@ print(paste("Mode:", mode_value))
 ```
 \vspace{1em}
 
-4. Still in Excel, now calculate the STANDARD DEVIATION for the Yearly Mean Snow
-Depth.
+4. Still in Excel, now calculate the **STANDARD DEVIATION** for the Yearly Mean Snow
+Depth.  
 ```{r}
 sd(df_snow$Mean_Dec_May_snow_depth)
 ```
@@ -78,7 +79,7 @@ print(iqr_value)
 \vspace{1em}
 
 6. Using the Interquartile range technique, how many **OUTLIER** years are there in your
-Yearly Mean Snow Depth Data? 
+**Yearly Mean Snow Depth Data**?   
 ```{r}
 # Calculate the quartiles and IQR
 q1 <- quantile(df_snow$Mean_Dec_May_snow_depth, 0.25, na.rm = TRUE)
@@ -101,8 +102,8 @@ print(num_outliers)
 \vspace{1em}
 
 8. Now calculate **Pearson's skew for the Yearly Mean Snow Depth Data**. Enter your
-answer rounded to 2 decimal places. (do this in JMP .....you've already proved your excel
-skills above) 
+answer rounded to 2 decimal places. (do this in R; you've already proved your excel
+skills above)   
 ```{r}
 # Calculate Pearson's skew
 skew <- skewness(df_snow$Mean_Dec_May_snow_depth, na.rm = TRUE)
@@ -176,7 +177,7 @@ shapiro.test(df_snow$Mean_Dec_May_snow_depth)
 17. Now use the **Boardstrength data** down-loadable from this blackboard folder. This
 datafile contains measurements of board strength for several different types of
 wood. Your task is to describe this data (**Strength variable**) as though you were
-presenting it in a paper, poster or presentation.
+presenting it in a paper, poster or presentation.  
 ```{r}
 # Calculate mean and standard deviation
 mean_strength <- mean(df_trees$Strength, na.rm = TRUE)
@@ -229,4 +230,4 @@ ggplot(df_trees, aes(x=Type, y=Strength)) +
 
 18. If you wanted to highlight the differences between species, and describe strength for
 each of them, how would your table look different? Consider that the actual statistical
-analysis to test for differences among species is run on the full sample of 20 observations, so metrics like kurtosis, skew and goodness of fit tests would be calculated on the full data set. 
+analysis to test for differences among species is run on the full sample of 20 observations, so metrics like kurtosis, skew and goodness of fit tests would be calculated on the full data set.  

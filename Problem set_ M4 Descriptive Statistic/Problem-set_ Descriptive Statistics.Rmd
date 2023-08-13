@@ -58,7 +58,7 @@ in a simple table, with a succinct caption to capture things like normality, out
 The key is give us enough information to figure out what type of analysis you would have
 to run to compare them.  
 
-A screenshot of the FULL JMP output is NOT OK.  
+A screenshot of the **FULL R output is NOT OK**.  
 
 **UPLOAD a screenshot of your data description table and caption for the Strength variable.**  
 
