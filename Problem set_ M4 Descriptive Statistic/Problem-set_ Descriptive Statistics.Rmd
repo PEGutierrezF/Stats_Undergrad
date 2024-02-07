@@ -21,3 +21,5 @@ Make sure to round and report all answers to two decimal places. Avoid entering 
 To receive full credit for this question, include a screenshot of your procedure in RStudio.
 
 5. Now, for the **Yearly Mean Snow Depth** column, calculate the **skewness, standard error of skewness (SES), kurtosis, standard error of kurtosis (SEK)**, and perform the **normality test with Shapiro-Wilk test**. Based on all of these parameters, determine if the Yearly Mean Snow Depth is normally distributed.
+
+6. Bonus  Upload a photo (screenshot) showing the distribution of Mean_Dec_May_snow_depth in a histogram.
