@@ -16,7 +16,7 @@ You can also view the prompts in this PDF document.
 
 2. For the column Strength, calculate the **standard deviation** and **variance**
 
-3. What is the **INTER-QUARTILE RANGE** for **Yearly Mean snow Depth**?  
+3. What is the **inter-quartile range** for Strength column?  
 
 4.  Using the Interquartile range technique, how many **OUTLIER** years are there in your
 **Strenght** column?    
