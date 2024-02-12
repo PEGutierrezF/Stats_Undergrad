@@ -111,6 +111,10 @@ ses
 ```{r}
 kurtosis <- round(kurtosis(df_strenth$Density, type = 1) - 3, 2)
 kurtosis
+
+# pivot(df_strenth, c(IQR, skew, kurtosis, mean, sd, var), Density)
+
+
 ```
 \vspace{1em}
 
