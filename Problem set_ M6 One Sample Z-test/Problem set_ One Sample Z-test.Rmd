@@ -1,7 +1,7 @@
 ---
 title: "M6: Problem Set One Sample Z-test"
 author: "Pablo E. Gutiérrez-Fonseca"
-date: "2023-08-09"
+date: "`r format(Sys.time(), '%Y-%m-%d %H:%M:%S')`"
 output: pdf_document
 ---
 
@@ -27,12 +27,12 @@ analysis.
 <br />  
 <br /> 
 
-**Running a one-sample z-test in R.**<br />
+**Running a one-sample z-test in R using _z.test()_.**<br />
 
 An environmental law firm is suing the European Union for additional resources to clean its waterways. They claim that the mean concentration (ppm) of contaminants in their water samples collected over a 10-year period are significantly higher than the larger "population" of water quality samples collected across the EU. Citing significantly higher need would warrant the allocation of additional resources to
 their region.
 <br />
-Download the data Water Pollution Concentration.jmp and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are significantly higher than the larger EU "population" of water quality results (of **$\small \mu$ = 1644**, **$\small \sigma$ = 497**).
+Download the data Water Pollution Concentration (as csv file) and test to see if the concentration (mean ppm) of pollutants from the 10 observation sample in our data set are **significantly higher than** the larger EU "population" of water quality results (of **$\small \mu$ = 1644**, **$\small \sigma$ = 497**).
 
 - Use the code **z.test()**
 ```{r, error=TRUE}
