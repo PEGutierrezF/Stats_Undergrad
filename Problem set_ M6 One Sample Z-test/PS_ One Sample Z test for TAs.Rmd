@@ -9,86 +9,39 @@ output: pdf_document
 <br />  
 <br /> 
 
+```{r}
+library(BSDA)
+```
+
+```{r}
+# Given data
+population_mean <- 85
+population_sd <- 11.6
+sample_mean <- 80.94
+sample_size <- 25
+
+# Perform one-sample z-test
+result <- z.test(x = sample_mean, sigma.x = population_sd, n = sample_size, mu = population_mean, alternative = "less")
+
+# Print the result
+print(result)
+```
+
 **Load the water pollution data into R.<br />** 
 ```{r, echo=FALSE}
-df_water <- read.csv('C:/Users/Guti/OneDrive - University of Vermont/Curriculum/07_ Cursos/NR-2400/Problem set_ M6 One Sample Z-test/water pollution.csv')
-head(df_water)
+df_water <- read.csv('water pollution.csv')
+head(df_water,10)
 ```
 <br />
 <br />
 <br />
 
-
-**Define the parameters: mean and sd of the population, sample mean, sample size.<br />**
-<br />
 ```{r}
-# Population mean (null hypothesis)
-population_mean <- 1644
-population_sd <- 497
+z.test(x= df_water$value,
+alternative = "greater", 
+mu = 1644,
+sigma.x = 497)
 ```
-<br />
-```{r}
-# Calculate sample mean
-sample_mean <- mean(df_water$value, na.rm=TRUE)
-sample_mean
-```
-<br />
-```{r}
-# Sample size
-n <- length(df_water$value)
-n
-```
-<br />
-<br />
-<br />
 
 
-**Calculate the test statistic (z-score).**
-```{r}
-# Calculate the test statistic (z-score)
-z_score <- (sample_mean - population_mean) / (population_sd / sqrt(n))
-z_score
-```
-<br />
-<br />
-<br />
-
-**Define p-values.**<br />
-```{r}
-# Calculate p-value for two-tailed test
-p_value_two_tail <- 2 * (1 - pnorm(abs(z_score)))
-# Calculate the p-value for the right-tailed test
-p_value_right_tailed <- 1 - pnorm(z_score)
-# Calculate the p-value for the left-tailed test
-p_value_left_tailed <- pnorm(z_score)
-```
-<br />
-<br />
-
-
-**Print estimated paramenters.**<br />
-```{r}
-# Print results
-cat("Z-Score:", z_score)
-cat("Prob >|z|:", p_value_two_tail)
-cat("Prob > z:", p_value_right_tailed)
-cat("Prob < z:", p_value_left_tailed)
-```
-<br />
-<br />
-
-**Compare with calculate critical z-value for one-tailed and two-tailed test (right-tailed).**
-```{r}
-# Define significance level (alpha)
-alpha <- 0.05
-# Calculate critical z-value for one-tailed test (right-tailed)
-critical_z_one_tailed <- qnorm(1 - alpha)
-critical_z_one_tailed
-# Calculate critical z-values for two-tailed test
-critical_z_two_tailed <- qnorm(1 - alpha / 2)
-critical_z_two_tailed
-```
-<br />
-<br />
-<br />
 
