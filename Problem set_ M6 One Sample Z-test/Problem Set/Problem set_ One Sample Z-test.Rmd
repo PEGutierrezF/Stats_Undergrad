@@ -5,8 +5,12 @@ date: "`r format(Sys.time(), '%Y-%m-%d %H:%M:%S')`"
 output: pdf_document
 ---
 
-Welcome to our first foray into inferential statistics. The goal is to make sure that you understand the basics of what one-sample z-tests are doing and the steps in conducting any inferential test. Some of these questions can be answered by hand, in excel or in
-JMP. Be sure that you can navigate each of these approaches to running a One-Sample Z-test.<br />  
+Welcome to our first foray into inferential statistics. The goal is to make sure that you understand the basics of what one-sample z-tests are doing and the steps in conducting any inferential test.  
+
+Be sure that you can navigate each of these approaches to running a One-Sample Z-test.  
+
+The Water Pollution Concentration data that will be used to answer Question #5 can be downloaded from this link.<br />  
+
 <br />  
 <br /> 
 
