@@ -19,15 +19,15 @@ The Water Pollution Concentration data that will be used to answer Question #5 c
 According to the European medical Association, 11 year old boys in this region are known to have a mean weight of **$\small \mu$ = 85 pounds** with population standard deviation **$\small \sigma$ = 11.6 pounds**. A complaint is made that the boys living in a municipal children's home are underfed. As one bit of evidence, **n = 25 boys** (all age 11) are weighed and found to have a mean weight of 80.94 pounds.<br />  
 Assume the data is normally distributed and test to see **if the boys at the municipal home are significantly smaller than the general population of 11 year old boys in the region**.<br/> 
 
-1. What is the obtained value for this test?<br />
-2. What is the critical value of this test assuming an alpha threshold of 0.05?
-3. Do you conclude that there is a significant difference between the weight of the boys in the
-municipal home and the general population? Yes or no?
-4. What is the Actual p-value associated with this obtained test statistic value? (you can use excel
-functions for this).
-5. Based on the available data, can you conclude that the boys in the municipal home are
+1.1 What is the obtained value for this test?  
+1.2 What is the critical value of this test assuming an alpha threshold of 0.05?  
+2. Do you conclude that there is a significant difference between the weight of the boys in the
+municipal home and the general population? Yes or no?  
+3. What is the Actual p-value associated with this obtained test statistic value? (you can use excel
+functions for this).  
+4. Based on the available data, can you conclude that the boys in the municipal home are
 underweight compared to the general population? Write a brief 1 paragraph summary for this
-analysis.
+analysis.  
 <br />  
 <br /> 
 
@@ -46,7 +46,7 @@ mu = ,  #population mean for comparison
 sigma.x = ) #population standard deviation
 ```
 
-6. Write a brief 1 paragraph summary for this analysis.
+5. Write a brief 1 paragraph summary for this analysis.
 
 
 
