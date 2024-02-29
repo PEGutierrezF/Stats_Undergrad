@@ -14,6 +14,9 @@ library(BSDA)
 ```
 
 
+Remember:  We can also calculate the p-value using 2 * pnorm(abs(z), lower.tail=FALSE) for
+a two-sided test and pnorm(z) or pnorm(z, lower.tail=FALSE) for a one-sided test
+where z is the z-statistic.
 ```{r}
 # Given data
 population_mean <- 85
@@ -26,7 +29,7 @@ n <- 25
 z <- (sample_mean - population_mean) / (population_sd / sqrt(n))
 z
 # Two-tailed test, so multiply p-value by 2
-p_value <- pnorm(abs(z), lower.tail = F)
+p_value <- pnorm(z, lower.tail = T)
 p_value
 ```
 
