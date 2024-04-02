@@ -5,6 +5,18 @@ date: "`r format(Sys.time(), '%Y-%m-%d %H:%M:%S')`"
 output: pdf_document
 ---
 
+We conducted an experiment to investigate the effect of different fertilizers on crop yield. Using a controlled environment, we divided a designated cultivation area into three equal plots. Each plot was assigned to one of three fertilizer treatments: Nitrogen, Phosphorus, and Potassium. The application of fertilizers followed recommended dosages to ensure uniformity across plots. Subsequently, we planted the same crop in each plot and maintained consistent agronomic practices throughout the growth period. This setup allowed us to directly assess any disparities in crop yield attributable to the variable under scrutiny, namely the type of fertilizer used.
+
+We hypothesize that the type of fertilizer applied will have a significant influence on crop yield. Specifically, we expect that there will be differences in crop yield among the three fertilizer treatments: Nitrogen, Phosphorus, and Potassium.
+
+
+5. Summarize: Write a concise one paragraph summary of this analysis. Remember that any summary should include the following:  
+a. Statement of the research hypothesis or study objectives.  
+b. Brief summary of methods (one sentence or less).  
+c. Statement of the statistical results (including type of test and shorthand: t(df)= obtained value, p = 0.xxx).  
+d. Description of any diﬀerences, if meaningful, along with an interpretation of why these results make sense (or don’t make sense).  
+
+The aim of our study was to assess the influence of different fertilizers on crop yield, with a focus on Nitrogen, Phosphorus, and Potassium treatments. Using a one-way ANOVA, we found a significant effect of fertilizer type on crop yield (F(2, 93) = 7.863, p < 0.001, r^2 = 0.1411). Post-hoc analysis with Tukey's HSD revealed that crop yield with Potassium fertilizer was significantly higher than with Nitrogen (p = 0.0006) and Phosphorus (p = 0.0209) fertilizers. However, there was no significant difference in yield between Nitrogen and Phosphorus treatments (p = 0.4955). These results underscore the importance of fertilizer choice, suggesting that Potassium application may lead to superior crop yields compared to other fertilizer types. Such findings emphasize the potential impact of fertilizer management practices on agricultural productivity.
 
 
 #1. Import libraries and load packages
@@ -40,12 +52,13 @@ summary(one.way)
 ```
 
 
-#4. #Tukey, all pairs comparison
+#4. Perform a Tukey’s Honestly Significant Difference (Tukey’s HSD) post-hoc test for pairwise comparisons
 ```{r}
 TukeyHSD(one.way)
 plot(TukeyHSD(one.way))
 ```
-
+#5. Tukey Interpretation.
+From the post-hoc test results, we see that there are statistically significant differences (p < 0.05) between fertilizer groups 3 and 1 and between fertilizer types 3 and 2, but the difference between fertilizer groups 2 and 1 is not statistically significant.
 
 Reference
 https://www.scribbr.com/statistics/anova-in-r/
