@@ -12,6 +12,7 @@ library(tidyverse)
 library(rstatix)
 library(readxl)
 library(dplyr)
+library(PMCMRplus)
 ```
 
 
@@ -27,17 +28,26 @@ UV_deformities <- read.csv(file = "UV_deformities.csv", header = TRUE)
 shapiro.test(UV_deformities$deformities)
 ```
 
+#4. #variance
+```{r}
+bartlett.test(deformities ~ species, data = UV_deformities)
+```
 
-#4. Run a ANOVA
+#5. boxplot
+```{r}
+ggplot(UV_deformities) + aes(x = species, y = deformities) + 
+          geom_boxplot() 
+```
+
+#4. Run a kruskal.test
+# NOT Normal AND NON-Equal Variances
 ```{r}
 kruskal.test(deformities ~ species, data = UV_deformities)
+#All Pairs
+wilcox_test(deformities ~ species, data = UV_deformities, p.adjust.method = "bonferroni")
+#Effect Size
+kruskal_effsize(deformities ~ species, data = UV_deformities)
 
-one.way <- aov(deformities ~ species, data = UV_deformities)
-summary(one.way)
 ```
 
-#5. R2
-```{r}
-(18047)/(18047+9460)
-```
 
