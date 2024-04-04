@@ -50,4 +50,12 @@ kruskal_effsize(deformities ~ species, data = UV_deformities)
 
 ```
 
+#5. Another way to find R^2
+```{r}
+mod <- aov(deformities ~ species, data = UV_deformities)
+summary(mod)
+18047 / (18047+9460)
+
+summary(lm(deformities ~ species, data = UV_deformities))
+```
 
