@@ -10,7 +10,7 @@ On Brightspace you have a data set **marine_redox.xlsx** that quantifies the rel
 Your task is to examine the relationships between the various measured biotic and abiotic variables in this data set with the goal of finding which has the strongest, unique relationship with redox potential (Eh).
 
 #1. Import libraries and load packages
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(rstatix)
 library(readxl)
@@ -25,8 +25,8 @@ library(ppcor)
 redox <- read_excel("marine_redox.xlsx", sheet = 1, col_names = TRUE)
 ```
 
-1.	Your first task will be to visualize the relationships among variables. 
-Visualize your data – examine scatterplots of each of your variables.  Paste your figures here, and generally describe the expected type of correlation you see.
+1.	Your first task will be to visualize the relationships among variables.  
+Visualize your data, examine scatterplots of each of your variables.  Paste your figures here, and generally describe the expected type of correlation you see.
 **Eh and Biomass:** Include a scatterplot.  Based on your visualization, describe if 
 1. Linear (Y/N), 
 2. Pos or Neg, 
@@ -86,13 +86,10 @@ shapiro.test(redox$temperature)
 shapiro.test(redox$oxygen)
 shapiro.test(redox$detritus)
 shapiro.test(redox$Eh)
-
-shapiro_results <- lapply(redox[, c("biomass", "temperature", "oxygen", "detritus", "Eh")], shapiro.test)
-
 ```
 
 
-3.	Time to run some correlations in R.   Report the shorthand for each of your correlations with Eh. Be sure to clarify if you ran a Pearson’s (r) or Spearman’s (rho) correlation based on your normality.
+3.	Time to run some correlations in R.   Report the shorthand for each of your correlations with Eh. Be sure to clarify if you ran a Pearson's (r) or Spearman's (rho) correlation based on your normality.
 Eh and Biomass:
 ```{r}
 cor.test(redox$Eh,redox$biomass,
