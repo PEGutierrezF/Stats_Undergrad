@@ -1,0 +1,123 @@
+---
+title: 'M11 Group Work: Correlations for TAs'
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2024-04-11"
+output: pdf_document
+---
+
+
+On Brightspace you have a data set **marine_redox.xlsx** that quantifies the relationships among temperature, algal biomass, detritus and oxygen concentrations and redox potential (Eh) in various ocean water samples.  Measurements of Eh are used to evaluate geochemical speciation models, and Eh data can provide insights on the evolution and status of water quality in aqueous systems.  We want to better understand what factors influence redox potential in ocean ecosystems to inform how climate change might impact redox potential (temperature) and if there are other water quality conditions we could target for management actions to minimize redox potential.  
+Your task is to examine the relationships between the various measured biotic and abiotic variables in this data set with the goal of finding which has the strongest, unique relationship with redox potential (Eh).
+
+#1. Import libraries and load packages
+```{r message=FALSE}
+library(tidyverse)
+library(rstatix)
+library(readxl)
+library(dplyr)
+library(PMCMRplus)
+library(lessR)
+library(ppcor)
+```
+
+#2. Importing our data
+```{r}
+redox <- read_excel("marine_redox.xlsx", sheet = 1, col_names = TRUE)
+```
+
+1.	Your first task will be to visualize the relationships among variables. 
+Visualize your data – examine scatterplots of each of your variables.  Paste your figures here, and generally describe the expected type of correlation you see.
+**Eh and Biomass:** Include a scatterplot.  Based on your visualization, describe if 
+1. Linear (Y/N), 
+2. Pos or Neg, 
+3. Strength (weak, mild, moderate or strong).
+
+
+```{r}
+ggplot(redox, aes(x=Eh, y=biomass)) + 
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+**Eh and Temperature:** Include a scatterplot.  Based on your visualization, describe if 
+1. Linear (Y/N), 
+2. Pos or Neg, 
+3. Strength (weak, mild, moderate or strong).
+```{r}
+ggplot(redox, aes(x=Eh, y=temperature)) + 
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+**Eh and Oxygen:** Include a scatterplot.  Based on your visualization, describe if 
+1. Linear (Y/N), 
+2. Pos or Neg, 
+3. Strength (weak, mild, moderate or strong).
+```{r}
+ggplot(redox, aes(x=Eh, y=oxygen)) + 
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+**Eh and Detritus:** Include a scatterplot.  Based on your visualization, describe if 
+1. Linear (Y/N), 
+2. Pos or Neg, 
+3. Strength (weak, mild, moderate or strong).
+```{r}
+ggplot(redox, aes(x=Eh, y=detritus)) + 
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
+2.	Now describe each of your variables and analyze your distributions.  For clarity, work to aggregate your data into a table like this:
+```{r}
+#pivot gives us more summary statistics. 
+pivot(redox, c(mean,median, sd, min, max),  biomass)
+pivot(redox, c(mean,median, sd, min, max),  temperature)
+pivot(redox, c(mean,median, sd, min, max),  oxygen)
+pivot(redox, c(mean,median, sd, min, max),  detritus)
+pivot(redox, c(mean,median, sd, min, max),  Eh)
+```
+
+
+```{r}
+#normality
+shapiro.test(redox$biomass)
+shapiro.test(redox$temperature)
+shapiro.test(redox$oxygen)
+shapiro.test(redox$detritus)
+shapiro.test(redox$Eh)
+```
+
+
+3.	Time to run some correlations in R.   Report the shorthand for each of your correlations with Eh. Be sure to clarify if you ran a Pearson’s (r) or Spearman’s (rho) correlation based on your normality.
+Eh and Biomass:
+```{r}
+cor.test(redox$Eh,redox$biomass,
+         method='spearman')
+```
+
+Eh and Temperature:
+```{r}
+cor.test(redox$Eh,redox$temperature,
+         method='spearman')
+```
+
+Eh and Biomass:
+```{r}
+cor.test(redox$Eh,redox$oxygen,
+         method='spearman')
+```
+
+Eh and Biomass:
+```{r}
+cor.test(redox$Eh,redox$detritus,
+         method='spearman')
+```
+
+
+4.	Because we want to identify the metric with the strongest relationship on Eh, while controlling for any autocorrelation among variables, run partial correlations that includes all variables with a significant simple correlation with Eh.  Report the results of your partial correlation and identify which variable has the strongest, unique relationship with Eh.
+```{r}
+pcor(redox)
+```
+
