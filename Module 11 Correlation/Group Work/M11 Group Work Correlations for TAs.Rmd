@@ -79,7 +79,6 @@ pivot(redox, c(mean,median, sd, min, max),  detritus)
 pivot(redox, c(mean,median, sd, min, max),  Eh)
 ```
 
-
 ```{r}
 #normality
 shapiro.test(redox$biomass)
@@ -87,6 +86,9 @@ shapiro.test(redox$temperature)
 shapiro.test(redox$oxygen)
 shapiro.test(redox$detritus)
 shapiro.test(redox$Eh)
+
+shapiro_results <- lapply(redox[, c("biomass", "temperature", "oxygen", "detritus", "Eh")], shapiro.test)
+
 ```
 
 
