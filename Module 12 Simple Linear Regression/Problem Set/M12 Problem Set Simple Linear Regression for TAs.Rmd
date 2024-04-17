@@ -10,16 +10,20 @@ Is the number of eggs produced by a mother related to the mother's mass?
 
 1. Use simple linear regression to find the best fit. What is the equation for that line?&nbsp; (round your coefficient to 2 decimals).  
 **Answer:** Y=12.69 +1.60X  
-2. What is the r2 of your model, is it meaningful?
-**Answer:** 0.2055 0 0.21.  No, it is not meaningful.
+
+2. What is the r2 of your model, is it meaningful?  
+**Answer:** 0.2055 0 0.21.  No, it is not meaningful.  
+
 3A. What is the RMSE of your model?  
 3B. What is the PRESS_RMSE of your model?  
-3C. Is your model stable? Remember to compare the PRESS_RMSE with the RMSE
+3C. Is your model stable? Remember to compare the PRESS_RMSE with the RMSE.  
 **Answer:** RMSE= 3.600417  
 **Answer:** PRESS_RMSE= 3.887804  
-**Answer:** Yes the model is stable  
+**Answer:** Yes the model is stable.  
+
 4. Using the Cook's D statistical test, is there evidence of potential outliers or high leverage observations in your model? If so, how many? You don't need to remove them because we don't know if they are genuine data points, but you do need to identify them.  
-**Answer:** 3
+**Answer:** 3  
+
 5. Write a concise one paragraph summary of this analysis.  
 Remember that any summary should include the following:  
 5a. Hypothesis or research objectives clearly stated.  
