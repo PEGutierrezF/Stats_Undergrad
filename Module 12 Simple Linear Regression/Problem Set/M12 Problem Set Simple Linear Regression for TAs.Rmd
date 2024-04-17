@@ -4,10 +4,22 @@ output: pdf_document
 date: "2024-04-17"
 ---
 
-Female specimens of the amphipod crustacean Platorchestia platensis were collected from a beach near Stony Brook, Long Island (New, York, USA), in April 1987 (McDonald, 1989). The eggs were removed, counted, and then discarded. The females were freeze-dried. Later in the laboratory the females were weighed.
+Female specimens of the amphipod crustacean **Platorchestia platensis** were collected from a beach near Stony Brook, Long Island (New, York, USA), in April 1987 (McDonald, 1989). The eggs were removed, counted, and then discarded. The females were freeze-dried. Later in the laboratory the females were weighed.
 
 Is the number of eggs produced by a mother related to the mother's mass?
 
+1. Use simple linear regression to find the best fit. What is the equation for that line?&nbsp; (round your coefficient to 2 decimals).  
+**Answer:** Y=12.7 +1.60X  
+2. What is the r2 of your model, is it meaningful?
+**Answer:** 0.2055 0 0.21.  No, it is not meaningful.
+3A. What is the RMSE of your model?  
+3B. What is the PRESS_RMSE of your model?  
+3C. Is your model stable? Remember to compare the PRESS_RMSE with the RMSE
+**Answer:** RMSE= 3.600417  
+**Answer:** PRESS_RMSE= 3.887804  
+**Answer:** Yes the model is stable  
+4. Using the Cook's D statistical test, is there evidence of potential outliers or high leverage observations in your model? If so, how many? You don't need to remove them because we don't know if they are genuine data points, but you do need to identify them.  
+**Answer:** 3
 5. Write a concise one paragraph summary of this analysis.  
 Remember that any summary should include the following:  
 5a. Hypothesis or research objectives clearly stated.  
@@ -20,6 +32,9 @@ Remember that any summary should include the following:
   5c.d p-value: how significant is the relationship the model is based on.  
 5d. Interpretation.How useful do you think this model will be for its intended purpose (link back to the original objective). Consider all of the metrics you described above as well as the range over which the model is valid.  
 
+**Answer:** The objective of the analysis was to investigate the relationship between the number of eggs produced by a mother and the mother's mass. To address this, a simple linear least squares regression model was employed. The resulting model equation, eggs=12.6890+1.6017×weight, indicates that for each unit increase in the mother's mass, there is an estimated increase of 1.6017 units in the number of eggs produced. The coefficient of determination (R2) value of 0.2055 suggests that approximately 20.55% of the variability in egg production can be explained by the mother's mass. The residual standard error (RMSE) of 3.600417 represents the average deviation of observed values from the fitted values. The p-value for the coefficient of the weight variable is 0.0154, indicating a significant relationship between egg production and the mother's mass at a 5% significance level.
+
+Assessment of potential outliers using Cook's distance suggests that their presence may impact the model's coefficients, accuracy, and significance. Thus, caution is warranted when interpreting results, especially if outlier removal is considered. Despite this, the model demonstrates usefulness in predicting egg production within the observed range of mother masses. However, its predictive power may be limited beyond this range or in the presence of outliers. Therefore, while informative, it's crucial to consider additional factors and exercise caution when applying the model to new data or extrapolating beyond the observed range.
 
 
 #1. Import libraries and load packages
@@ -41,24 +56,24 @@ ggplot(eggs_weight, aes(x=weight, y=eggs)) +
   geom_point() + geom_smooth(method='lm', se=F)
 ```
 
-
+#4. Run the model
 ```{r}
 mod = lm(eggs ~ weight, data = eggs_weight)
 summary(mod)
 ```
 
-
+#5. Check Normality of the residuals.
 ```{r}
 shapiro.test(mod$residuals)
 ```
 
-
+#6a. Plot the Residuals
 ```{r}
 plot(residuals(mod))
 abline(h = 0, col = "red")
 ```
 
-
+#6b. Plot the Residuals in ggplot.
 ```{r}
 # Create a data frame with residuals and fitted values
 residuals_df <- data.frame(
@@ -75,20 +90,15 @@ ggplot(residuals_df, aes(x = Fitted, y = Residuals)) +
   theme_classic()
 ```
 
-
+#7a. Cooks D
 ```{r}
 #Cooks D
 ggplot(as_tibble(cooks.distance(mod)), aes(value)) + geom_boxplot()
 plot(mod,which=4)
 ```
 
-
+#7b. Hihglight the potential ouliers with ggplot
 ```{r}
-library(ggplot2)
-
-# Fit the linear regression model
-mod <- lm(eggs ~ weight, data = eggs_weight)
-
 # Calculate Cook's distance
 cooks_distance <- cooks.distance(mod)
 
@@ -113,6 +123,28 @@ ggplot(eggs_weight, aes(x = weight, y = eggs)) +
   scale_color_manual(values = c("red", "red")) +
   ggtitle("Scatter Plot of Eggs vs Weight with Potential Outliers Identified") +
   theme_classic()
+```
+
+
+```{r}
+#Residual sum of squares
+RSS <- c(crossprod(mod$residuals))
+# Mean squared error:
+MSE <- RSS / length(mod$residuals)
+RMSE <- sqrt(MSE)
+RMSE
+```
+
+```{r}
+# PRESS -------------------------------------------------------------------
+# (r <- resid(mod))
+pr <- resid(mod)/(1 - lm.influence(mod)$hat)
+PRESS <- sum(pr^2)
+PRESS
+
+# PRESS_RMSE
+PRESS_RMSE <- sqrt(PRESS/length(mod$residuals))
+PRESS_RMSE
 ```
 
 
