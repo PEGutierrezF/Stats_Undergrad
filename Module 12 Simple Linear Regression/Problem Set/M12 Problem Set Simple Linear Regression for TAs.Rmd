@@ -9,7 +9,7 @@ Female specimens of the amphipod crustacean **Platorchestia platensis** were col
 Is the number of eggs produced by a mother related to the mother's mass?
 
 1. Use simple linear regression to find the best fit. What is the equation for that line?&nbsp; (round your coefficient to 2 decimals).  
-**Answer:** Y=12.7 +1.60X  
+**Answer:** Y=12.69 +1.60X  
 2. What is the r2 of your model, is it meaningful?
 **Answer:** 0.2055 0 0.21.  No, it is not meaningful.
 3A. What is the RMSE of your model?  
