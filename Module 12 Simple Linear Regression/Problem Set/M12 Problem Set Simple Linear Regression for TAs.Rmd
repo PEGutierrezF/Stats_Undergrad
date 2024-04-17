@@ -1,0 +1,5 @@
+---
+title: 'M12 Problem Set: Simple Linear Regression for TAs'
+output: pdf_document
+date: "2024-04-17"
+---
