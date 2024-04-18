@@ -9,8 +9,6 @@ output: pdf_document
 library(tidyverse)
 library(readxl)
 library(car)
-install.packages('caret')
-library(caret)
 ```
 
 #Load data
@@ -59,8 +57,41 @@ ggplot(model, aes(x = .fitted, y = .resid)) +
 ```
 
 
-RMSE
+#RMSE
 ```{r}
-sqrt(sum(model$residuals^2)/model$df)
+RMSE <- sqrt(sum(model$residuals^2)/model$df)
+```
+
+```{r}
+response <- BAI_NDWI$BAI
+# Calculate the Mean of the response
+mean_response <- mean(response)
+Percentage_Error <- RMSE/mean_response
+Percentage_Error
+```
+
+#PRESS
+```{r}
+# (r <- resid(mod))
+pr <- resid(model)/(1 - lm.influence(model)$hat)
+PRESS <- sum(pr^2)
+PRESS
+
+# PRESS_RMSE
+PRESS_RMSE <- sqrt(PRESS/length(model$residuals))
+PRESS_RMSE
+```
+
+
+```{r}
+#Jackknifing
+jack.reg<-numeric(27)
+for (i in 1:27) {
+  model<-lm(BAI[-i]~min_NDWI[-i], data = BAI_NDWI)
+  jack.reg[i]<-summary(model)$r.squared }
+
+ggplot(as.tibble(jack.reg), aes(value)) + geom_histogram()
+
+shapiro.test(jack.reg)
 ```
 
