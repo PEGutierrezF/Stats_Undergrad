@@ -9,6 +9,8 @@ output: pdf_document
 library(tidyverse)
 library(readxl)
 library(car)
+install.packages('caret')
+library(caret)
 ```
 
 #Load data
@@ -44,5 +46,21 @@ ncvTest(model)
 res <- resid(model)
 shapiro.test(res)
 
+```
+
+#create residual plot
+```{r}
+ggplot(model, aes(x = .fitted, y = .resid)) +
+  geom_point(size=3) +  
+  geom_hline(yintercept = 0, color = "red") +
+  labs(title = "Residuals Plot",
+       x = "Index",
+       y = "Residuals")
+```
+
+
+RMSE
+```{r}
+sqrt(sum(model$residuals^2)/model$df)
 ```
 

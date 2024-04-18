@@ -68,8 +68,4 @@ PRESS_RMSE
 
 
 #RMSE( Residual sum of squares)
-RSS <- c(crossprod(model$residuals))
-# Mean squared error:
-MSE <- RSS / length(model$residuals)
-RMSE <- sqrt(MSE)
-RMSE
+sqrt(sum(model$residuals^2)/model$df) 
