@@ -1,0 +1,41 @@
+
+
+
+#1. Import libraries and load packages
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+```
+
+
+#2. importing our data
+```{r}
+global <- read_excel("CO2_Global_T.xlsx")
+```
+
+
+```{r}
+model <- lm(Temp_C~CO2_ppm , data = global)
+summary(model)
+
+# Calculate Cook's distance
+cooksd <- cooks.distance(model)
+
+# Identify outliers based on Cook's distance
+outliers <- cooksd > 4/nrow(global)  # Using a threshold of 4/n
+
+# Print outlier years
+print(global$Year[outliers])
+```
+
+
+```{r}
+data_filtered <- global %>%
+  filter(Year != 2021)
+
+model_filtered <- lm(Temp_C ~ CO2_ppm ,  data = data_filtered)
+
+summary(model_filtered)
+```
+

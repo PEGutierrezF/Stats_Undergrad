@@ -1,0 +1,48 @@
+---
+title: 'M12 Group Work: Simple Linear Regression for TAs'
+author: "Pablo E. Gutiérrez-Fonseca"
+date: "2024-04-18"
+output: pdf_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(car)
+```
+
+#Load data
+```{r}
+BAI_NDWI <- read_xlsx("PIRU_BAI.xlsx")
+```
+
+#This makes a plot with our regression line.
+```{r}
+ggplot(BAI_NDWI) +
+  aes(x = BAI, y = min_NDWI) +
+  geom_point() +
+  theme(legend.position = "none") + 
+  stat_smooth(method = "lm", formula = y ~ x, geom = "smooth") 
+```
+
+#this simply creates a 'model' for our regression model
+#This is the main think we are looking at!
+```{r}
+
+model <- lm(BAI~ min_NDWI, data = BAI_NDWI)
+summary(model)
+```
+
+
+##the Breusch-Pagan test to assess homoscedasticity
+```{r}
+ncvTest(model)
+```
+
+#get list of residuals to nest normality
+```{r}
+res <- resid(model)
+shapiro.test(res)
+
+```
+
