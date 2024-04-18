@@ -40,10 +40,12 @@ shapiro.test(penguins$res_sqrt)
 #Cooks D
 ggplot(as_tibble(cooks.distance(model)), aes(value)) + geom_boxplot()
 plot(model,which=4)
+
+
+
+# # Identify outliers based on Cook's distance ----------------------------
 # Calculate Cook's distance
 cooksd <- cooks.distance(model)
-
-# Identify outliers based on Cook's distance
 # Replace 'df' with the name of your data.
 outliers <- cooksd > 4/nrow(df)  # Using a threshold of 4/n
 
@@ -53,19 +55,31 @@ outliers <- cooksd > 4/nrow(df)  # Using a threshold of 4/n
 print(df$column[outliers]) 
 
 
-#Remove potential ouliers
+
+# Remove potential outliers -----------------------------------------------
+#Remove potential outliers
 new_df <- df %>%
   filter(column != outlier) # Replace 'outlier' with the printed outlier above.
 
 
+# PRESS and PRESS_RMSE ----------------------------------------------------
 #PRESS_RMSE
 press <- resid(model)/(1 - lm.influence(model)$hat)
 PRESS <- sum(press^2)
 PRESS
+
 # PRESS_RMSE
 PRESS_RMSE <- sqrt(PRESS/length(model$residuals))
 PRESS_RMSE
 
 
+# RMSE --------------------------------------------------------------------
 #RMSE( Residual sum of squares)
 sqrt(sum(model$residuals^2)/model$df) 
+
+
+# Percentage Response -----------------------------------------------------
+mean_response <- mean(df$column_response)
+# Calculate the percentage error
+percentage_error <- (RMSE /mean_response) 
+percentage_error
