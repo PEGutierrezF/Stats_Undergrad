@@ -1,0 +1,9 @@
+
+http://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/
+
+library(tidyverse)
+library(broom)
+model.diag.metrics <- augment(QPA.canopy.mod)
+model.diag.metrics %>%
+  top_n(3, wt = .cooksd)
+

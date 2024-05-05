@@ -5,7 +5,7 @@ date: "2024-04-18"
 output: pdf_document
 ---
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(readxl)
 library(car)
@@ -19,7 +19,7 @@ BAI_NDWI <- read_xlsx("PIRU_BAI.xlsx")
 #This makes a plot with our regression line.
 ```{r}
 ggplot(BAI_NDWI) +
-  aes(x = BAI, y = min_NDWI) +
+  aes(x = min_NDWI, y = BAI) +
   geom_point() +
   theme(legend.position = "none") + 
   stat_smooth(method = "lm", formula = y ~ x, geom = "smooth") 
@@ -28,8 +28,7 @@ ggplot(BAI_NDWI) +
 #this simply creates a 'model' for our regression model
 #This is the main think we are looking at!
 ```{r}
-
-model <- lm(BAI~ min_NDWI, data = BAI_NDWI)
+model <- lm(BAI ~ min_NDWI , data = BAI_NDWI)
 summary(model)
 ```
 
@@ -60,6 +59,7 @@ ggplot(model, aes(x = .fitted, y = .resid)) +
 #RMSE
 ```{r}
 RMSE <- sqrt(sum(model$residuals^2)/model$df)
+RMSE
 ```
 
 ```{r}
