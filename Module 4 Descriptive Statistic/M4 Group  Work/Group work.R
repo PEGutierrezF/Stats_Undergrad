@@ -18,7 +18,10 @@ snowdata <- read_excel("MM Snow Depth.xlsx")
 head(snowdata)
 
 #this pivot function is from lessR
-pivot(snowdata, c(mean, min,max,var,sd,skew,kurtosis,IQR,quantile), Mean_Dec_May_snow_depth)
+pivot(snowdata, c(mean, min,max,var,sd,skew,kurtosis,IQR,quantile), 
+      Mean_Dec_May_snow_depth)
+
+
 ?pivot
 
 #this quantile function is from lessR
@@ -31,6 +34,7 @@ ggplot(snowdata, aes(x = "", y = Mean_Dec_May_snow_depth)) +
                shape = 18, size = 3, color = "red") +
   geom_jitter(position=position_jitter(0.2)) +
   theme_bw()
+
 
 
 # Quantiles ---------------------------------------------------------------
@@ -63,3 +67,6 @@ ggplot(snowdata, aes(x=Year , y=Mean_Dec_May_snow_depth)) + geom_point()
 ggplot(snowdata, aes(x=Mean_Dec_May_snow_depth)) + geom_histogram()
 
 shapiro.test(snowdata$Mean_Dec_May_snow_depth)
+
+
+snowdata$Mean_Dec_May_snow_depth[snowdata$Mean_Dec_May_snow_depth < 14]
